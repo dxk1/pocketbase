@@ -31,6 +31,7 @@ func bindRecordCrudApi(app core.App, rg *echo.Group) {
 	subGroup.GET("/records", api.list, LoadCollectionContext(app))
 	subGroup.GET("/records/:id", api.view, LoadCollectionContext(app))
 	subGroup.POST("/records", api.create, LoadCollectionContext(app, models.CollectionTypeBase, models.CollectionTypeAuth))
+	subGroup.POST("/records/:id", api.update, LoadCollectionContext(app, models.CollectionTypeBase, models.CollectionTypeAuth))
 	subGroup.PATCH("/records/:id", api.update, LoadCollectionContext(app, models.CollectionTypeBase, models.CollectionTypeAuth))
 	subGroup.DELETE("/records/:id", api.delete, LoadCollectionContext(app, models.CollectionTypeBase, models.CollectionTypeAuth))
 }

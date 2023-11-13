@@ -18,7 +18,9 @@ func bindCollectionApi(app core.App, rg *echo.Group) {
 	subGroup.GET("", api.list)
 	subGroup.POST("", api.create)
 	subGroup.GET("/:collection", api.view)
+	//修改增加支持post和patch
 	subGroup.PATCH("/:collection", api.update)
+	subGroup.POST("/:collection", api.update)
 	subGroup.DELETE("/:collection", api.delete)
 	subGroup.PUT("/import", api.bulkImport)
 }
